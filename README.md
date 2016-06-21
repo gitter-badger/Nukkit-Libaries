@@ -1,10 +1,10 @@
 # Nukkit-Libaries
 Lot's of Nukkit Libaries for Bukkit lovers
 
-## Sound Enumeration use:
+## Sound use:
 
 	Sound.BLOCK_ANVIL_BREAK.play(location);
 
-## Particle Enumeration use:
+## Particle use:
 
-	Sound.VILLAGER_HAPPY.play(location);
+	Particle.VILLAGER_HAPPY.play(location);
