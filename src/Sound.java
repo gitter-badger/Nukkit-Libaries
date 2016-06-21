@@ -23,6 +23,7 @@ import cn.nukkit.level.sound.PopSound;
 import cn.nukkit.level.sound.TNTPrimeSound;
 import cn.nukkit.level.sound.ZombieHealSound;
 import cn.nukkit.level.sound.ZombieInfectSound;
+import cn.nukkit.math.Vector3;
 
 public enum Sound
 {
@@ -34,9 +35,14 @@ public enum Sound
 	BLOCK_DOOR(DoorSound.class),
 	BLOCK_LAVA_FIZZ(FizzSound.class),
 	BLOCK_LEVER_PULL(LeverSound.class),
-	BLOCK_NOTEBLOCK(NoteBoxSound.class),
-		
-	ENTITY_BAT(BatSound.class),
+
+	NOTE_PIANO(NoteBoxSound.class),
+	NOTE_BASS_DRUM(NoteBoxSound.class),
+	NOTE_CLICK(NoteBoxSound.class),
+	NOTE_TABOUR(NoteBoxSound.class),
+	NOTE_BASS(NoteBoxSound.class),
+
+	ENTITY_BAT_FLY(BatSound.class),
 	ENTITY_TNT_PRIME(TNTPrimeSound.class),
 	ENTITY_GHAST_SHOOT(GhastShootSound.class),
 	ENTITY_BLAZE_SHOOT(BlazeShootSound.class),
@@ -46,34 +52,37 @@ public enum Sound
 	ENTITY_CHICKEN_EGG_POP(PopSound.class),
 	ENTITY_ZOMBIE_HEAL(ZombieHealSound.class),
 	ENTITY_ZOMBIE_INFECT(ZombieInfectSound.class),
-	
+
 	UI_BUTTOM_CLICK(ButtonClickSound.class),
-	UI_CLICK(ClickSound.class),
-		
-	GENERIC(GenericSound.class);
+	UI_CLICK(ClickSound.class);
 
-	private Class<? extends cn.nukkit.level.sound.Sound> type;
+	private Class<? extends GenericSound> type;
 
-	private Sound(Class<? extends cn.nukkit.level.sound.Sound> type)
+	private Sound(Class<? extends cn.nukkit.level.sound.GenericSound> type)
 	{
 		this.type = type;
 	}
 
 	public void play(Location location)
 	{
+		if (location == null)
+			location = new Location(0, 0, 0);
+
 		try
 		{
-			cn.nukkit.level.sound.Sound sound = type.newInstance();
-			sound.x = location.x;
-			sound.y = location.y;
-			sound.z = location.z;
-			
+			cn.nukkit.level.sound.Sound sound = type.getDeclaredConstructor(Vector3.class).newInstance(location);
+
 			location.getLevel().addSound(sound);
 		}
 		catch (Exception e)
 		{
 			e.printStackTrace();
 		}
+	}
+
+	public Class<? extends GenericSound> getType()
+	{
+		return type;
 	}
 
 }
