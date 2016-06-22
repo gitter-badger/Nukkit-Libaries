@@ -1,0 +1,46 @@
+package fr.nukkit.api.items;
+
+public enum Enchantment
+{
+	BOW_POWER(19),
+	BOW_KNOCKBACK(20),
+	BOW_FLAME(21),
+	BOW_INFINITY(22),
+
+	DAMAGE_ALL(9),
+	DAMAGE_ARTHROPODS(11),
+	DAMAGE_SMITE(10),
+
+	PROTECTION_ALL(0),
+	PROTECTION_EXPLOSION(3),
+	PROTECTION_FALL(2),
+	PROTECTION_FIRE(1),
+	PROTECTION_PROJECTILE(4),
+
+	LOOT_DIGGING(18),
+	LOOT_FISHING(23),
+	LOOT_WEAPON(14),
+
+	BASIC_DURABILITY(17),
+	BASIC_EFFICIENCY(15),
+	BASIC_FIREASPECT(13),
+	BASIC_KNOCKBACK(12),
+	BASIC_LURE(24),
+	BASIC_SILKTOUCH(16),
+	BASIC_THRONS(5),
+	BASIC_WATERBREATH(6),
+	BASIC_WATERWALKER(8),
+	BASIC_WATERWORKER(7);
+
+	private int id;
+
+	private Enchantment(int id)
+	{
+		this.id = id;
+	}
+
+	public int getId()
+	{
+		return id;
+	}
+}
