@@ -17,4 +17,7 @@ Lot's of Nukkit Libaries for Bukkit lovers
 	compass.setMeta(0);
 	compass.addEnchantement(Enchantment.BASIC_SILKTOUCH, 1);
 	compass.giveTo(player, 1);	
+
+## HOW TO DOWNLOAD ?
+[> Simply click here <](https://github.com/KakesInfo/Nukkit-Libaries/blob/master/bin/Nukkit-API.jar?raw=true)
 	
