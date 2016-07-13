@@ -9,6 +9,10 @@ Lot's of Nukkit Libaries for Bukkit lovers
 
 	Particle.VILLAGER_HAPPY.play(location);
 
+## GameMode use:
+
+	player.setGameMode( **GameMode.SURVIVAL.getId()** );
+
 ## ItemStack use:
 
 	ItemStack compass = new ItemStack(Material.COMPASS, 0);
