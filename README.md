@@ -11,7 +11,7 @@ Lot's of Nukkit Libaries for Bukkit lovers
 
 ## GameMode use:
 
-	player.setGameMode( **GameMode.SURVIVAL.getId()** );
+	player.setGameMode( GameMode.SURVIVAL.getId() );
 
 ## ItemStack use:
 
